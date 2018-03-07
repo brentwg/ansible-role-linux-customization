@@ -8,8 +8,6 @@ additional_packages:
   - gnupg
   - curl
   - htop
-  - ntop
-  - unity-tweak-tool
   - build-essential
   - gparted
   - bridge-utils

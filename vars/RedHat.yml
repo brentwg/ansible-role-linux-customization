@@ -9,6 +9,5 @@ additional_packages:
   - gnupg
   - curl
   - htop
-  - ntop
   - yum-utils
   - gparted
