@@ -1,3 +1,14 @@
 ---
 # RedHat Variables
 ssh_service_name: sshd
+
+additional_packages:
+  - vim-enhanced
+  - gnome-tweak-tool
+  - pass
+  - gnupg
+  - curl
+  - htop
+  - ntop
+  - yum-utils
+  - gparted

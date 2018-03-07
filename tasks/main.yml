@@ -3,3 +3,6 @@
 - import_tasks: variables.yml
 
 - import_tasks: ssh_server.yml
+
+- import_tasks: additional_packages.yml
+
