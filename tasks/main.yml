@@ -1,0 +1,5 @@
+---
+# Variable configuration
+- import_tasks: variables.yml
+
+- import_tasks: ssh_server.yml
