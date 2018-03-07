@@ -11,3 +11,4 @@ additional_packages:
   - htop
   - yum-utils
   - gparted
+  - libselinux-python
