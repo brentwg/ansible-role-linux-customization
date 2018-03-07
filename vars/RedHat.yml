@@ -12,6 +12,7 @@ additional_packages:
   - yum-utils
   - gparted
   - libselinux-python
+  - selinux-policy
 
 additional_groups:
   - "Development Tools"
