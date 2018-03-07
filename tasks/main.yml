@@ -6,4 +6,7 @@
 
 - import_tasks: ssh_server.yml
 
+- import_tasks: selinux.yml
+  when: ansible_os_family == "RedHat"
 
+- import_tasks: sudo_nopasswd.yml

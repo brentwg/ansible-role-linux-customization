@@ -1,0 +1,7 @@
+---
+- name: Disable SELinux (RedHat)
+  lineinfile:
+    path: /etc/selinux/config
+    state: present
+    regexp: '^SELINUX='
+    line: 'SELINUX=disabled'

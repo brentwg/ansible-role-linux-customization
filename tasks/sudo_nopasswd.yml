@@ -1,0 +1,16 @@
+---
+- name: Enable NOPASSWD for wheel group (RedHat)
+  lineinfile:
+    path: /etc/sudoers
+    state: present
+    regexp: '^%wheel\s'
+    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+  when: ansible_os_family == "RedHat"
+
+- name: Enable NOPASSWD for sudo group (Debian)
+  lineinfile:
+    path: /etc/sudoers
+    state: present
+    regexp: '^%sudo\s'
+    line: '%sudo ALL=(ALL) NOPASSWD: ALL'
+  when: ansible_os_family == "Debian"
