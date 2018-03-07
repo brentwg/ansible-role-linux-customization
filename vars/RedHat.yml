@@ -12,3 +12,8 @@ additional_packages:
   - yum-utils
   - gparted
   - libselinux-python
+
+additional_groups:
+  - "Development Tools"
+  - "Virtualization"
+  
