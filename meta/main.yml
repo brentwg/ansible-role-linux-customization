@@ -1,0 +1,25 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: brentwg
+  description: Basic configuration changes that are performed after every new Linux installation.
+  company: "None"
+  license: "None"
+  min_ansible_version: 2.4
+  platforms:
+  - name: EL
+    versions:
+      - 7
+  - name: Fedora
+    versions:
+      - 27
+  - name: Ubuntu
+    versions:
+      - xenial
+  galaxy_tags:
+    - linux
+    - operating
+    - system
+    - customization
+    
