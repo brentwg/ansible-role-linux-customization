@@ -14,8 +14,3 @@
 
 # Enable nopasswd sudo 
 - import_tasks: sudo_nopasswd.yml
-
-# Configure Plymouth boot theme
-- import_tasks: plymouth_boot_theme.yml
-  when: ansible_os_family == "RedHat"
-  
