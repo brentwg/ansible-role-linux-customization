@@ -2,15 +2,48 @@
 # Variable configuration
 - import_tasks: variables.yml
 
-# Add additional packages
-- import_tasks: additional_packages.yml
+- name: Install additional packages (ALL)
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ additional_packages }}"
 
-# Enable SSH server
-- import_tasks: ssh_server.yml
+# Task Configuration
+- name: Include OS-specific tasks
+  include_tasks: "{{ item }}"
+  with_first_found: 
+    - files:
+      - "{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml"
+      - "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+      - "{{ ansible_distribution }}.yml"
+      - "{{ ansible_os_family }}.yml"
+      skip: true
 
-# Disable SELinux
-- import_tasks: selinux.yml
-  when: ansible_os_family == "RedHat"
+# Deal with SSH Server (ALL)
+- name: Install SSH server
+  package:
+    name: "{{ ssh_server_package }}"
+    state: present
 
-# Enable nopasswd sudo 
-- import_tasks: sudo_nopasswd.yml
+- name: Enable SSH server
+  service:
+    name: "{{ ssh_service_name }}"
+    enabled: yes
+
+- name: Disable root access
+  lineinfile:
+    dest: "{{ ssh_sshd_config }}"
+    regexp: "^PermitRootLogin"
+    line: "PermitRootLogin no"
+    state: present
+  notify:
+    - restart ssh server
+
+- name: Disallow GSS API authentication
+  lineinfile:
+    dest: "{{ ssh_sshd_config }}"
+    regexp: "^GSSAPIAuthentication"
+    line: "GSSAPIAuthentication no"
+    state: present
+  notify:
+    - restart ssh server

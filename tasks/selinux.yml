@@ -1,4 +1,0 @@
----
-- name: Disable SELinux (RedHat)
-  selinux:
-    state: disabled

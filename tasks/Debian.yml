@@ -1,0 +1,8 @@
+---
+- name: Enable NOPASSWD for sudo group (Debian)
+  lineinfile:
+    path: /etc/sudoers
+    state: present
+    regexp: '^%sudo\s'
+    line: '%sudo ALL=(ALL) NOPASSWD: ALL'
+  when: ansible_os_family == "Debian"

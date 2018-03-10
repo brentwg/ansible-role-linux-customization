@@ -1,0 +1,8 @@
+---
+- name: Install additional group packages (CentOS)
+  yum:
+    name: "@{{ item }}"
+    state: present
+  with_items: "{{ additional_groups }}"
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+  
