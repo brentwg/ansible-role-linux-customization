@@ -1,8 +1,21 @@
 ---
-- name: Install additional group packages (CentOS)
+# Deal with Package Groups
+- name: Install additional package groups (CentOS)
   yum:
     name: "@{{ item }}"
     state: present
   with_items: "{{ additional_groups }}"
   when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
   
+# Deal with SELinux
+- name: Disable SELinux (CentOS)
+  selinux:
+    state: disabled
+
+# Deal with nopasswd sudo
+- name: Enable NOPASSWD for wheel group (CentOS)
+  lineinfile:
+    path: /etc/sudoers
+    state: present
+    regexp: '^%wheel\s'
+    line: '%wheel ALL=(ALL) NOPASSWD: ALL'

@@ -22,31 +22,5 @@
   loop_control:
     loop_var: task_item
 
-# Deal with SSH Server (ALL)
-- name: Install SSH server
-  package:
-    name: "{{ ssh_server_package }}"
-    state: present
-
-- name: Enable SSH server
-  service:
-    name: "{{ ssh_service_name }}"
-    enabled: yes
-
-- name: Disable root access
-  lineinfile:
-    dest: "{{ ssh_sshd_config }}"
-    regexp: "^PermitRootLogin"
-    line: "PermitRootLogin no"
-    state: present
-  notify:
-    - restart ssh server
-
-- name: Disallow GSS API authentication
-  lineinfile:
-    dest: "{{ ssh_sshd_config }}"
-    regexp: "^GSSAPIAuthentication"
-    line: "GSSAPIAuthentication no"
-    state: present
-  notify:
-    - restart ssh server
+# Deal with SSH Server
+- include tasks: ssh_server.yml

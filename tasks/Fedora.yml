@@ -1,8 +1,21 @@
 ---
-- name: Install additional group packages (Fedora)
+# Deal with package groups
+- name: Install additional package groups (Fedora)
   dnf:
     name: "@{{ item }}"
     state: present
   with_items: "{{ additional_groups }}"
   when: ansible_distribution == 'Fedora'
   
+# Deal with SELinux
+- name: Disable SELinux (Fedora)
+  selinux:
+    state: disabled
+
+# Deal with nopasswd sudo
+- name: Enable NOPASSWD for wheel group (Fedora)
+  lineinfile:
+    path: /etc/sudoers
+    state: present
+    regexp: '^%wheel\s'
+    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
