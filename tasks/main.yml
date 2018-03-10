@@ -1,5 +1,5 @@
 ---
-# Variable configuration
+# OS-Specific Variables
 - import_tasks: variables.yml
 
 # Deal with additional packages
@@ -9,7 +9,7 @@
     state: present
   with_items: "{{ additional_packages }}"
 
-# Task Configuration
+# OS-Specific Tasks
 - name: Include OS-specific tasks
   include_tasks: "{{ task_item }}"
   with_first_found: 
