@@ -2,6 +2,7 @@
 # Variable configuration
 - import_tasks: variables.yml
 
+# Deal with additional packages
 - name: Install additional packages (ALL)
   package:
     name: "{{ item }}"
@@ -10,7 +11,7 @@
 
 # Task Configuration
 - name: Include OS-specific tasks
-  include_tasks: "{{ item }}"
+  include_tasks: "{{ task_item }}"
   with_first_found: 
     - files:
       - "{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml"
@@ -18,6 +19,8 @@
       - "{{ ansible_distribution }}.yml"
       - "{{ ansible_os_family }}.yml"
       skip: true
+  loop_control:
+    loop_var: task_item
 
 # Deal with SSH Server (ALL)
 - name: Install SSH server
