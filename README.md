@@ -1,5 +1,5 @@
 # Ansible Role: Linux Customization
-[![Build Status](https://travis-ci.org/brentwg/ansible-role-linux-customization.svg?branch=master)](https://travis-ci.org/brentwg/aansible-role-linux-customization)
+[![Build Status](https://travis-ci.org/brentwg/ansible-role-linux-customization.svg?branch=master)](https://travis-ci.org/brentwg/ansible-role-linux-customization)
 
 These are basic configuration changes that are performed after every new Linux installation.
 
