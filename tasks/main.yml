@@ -23,4 +23,4 @@
     loop_var: task_item
 
 # Deal with SSH Server
-- include tasks: ssh_server.yml
+- import_tasks: ssh_server.yml
