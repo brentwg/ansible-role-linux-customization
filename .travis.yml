@@ -19,5 +19,17 @@ script:
   # Run tests
   - ${PWD}/tests/test.sh
 
+  # Test that additional packages fired (check pass)
+  docker exec --tty $container_id env TERM=xterm pass --version
+
+  # Test that package groups fired (check gcc)
+  docker exec --tty $container_id env TERM=xterm gcc --version
+
+  # Test that virtualization packages installed (check virsh)
+  docker exec --tty $container_id env TERM=xterm virsh --version
+
+  # Test that NOPASSWD sudo is enabled
+  docker exec --tty $container_id env TERM=xterm grep NOPASSWD /etc/sudoers | grep -v '#'
+
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
