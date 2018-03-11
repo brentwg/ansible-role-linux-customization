@@ -1,0 +1,20 @@
+---
+# RedHat Variables
+ssh_service_name: sshd
+
+additional_packages:
+  - vim-enhanced
+  - gnome-tweak-tool
+  - pass
+  - gnupg
+  - curl
+  - htop
+  - yum-utils
+  - gparted
+  - libselinux-python
+  - selinux-policy
+
+additional_groups:
+  - "Development Tools"
+  - "Virtualization Host"
+  
