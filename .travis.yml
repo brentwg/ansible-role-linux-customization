@@ -20,19 +20,19 @@ script:
   - ${PWD}/tests/test.sh
 
   # Test that additional packages tasks fired (check pass)
-  docker exec --tty $container_id env TERM=xterm pass --version
+  - docker exec --tty $container_id env TERM=xterm pass --version
 
   # Test that package groups tasks fired (check gcc)
-  docker exec --tty $container_id env TERM=xterm gcc --version
+  - docker exec --tty $container_id env TERM=xterm gcc --version
 
   # Test that virtualization packages installed (check virsh)
-  docker exec --tty $container_id env TERM=xterm virsh --version
+  - docker exec --tty $container_id env TERM=xterm virsh --version
 
   # Test that NOPASSWD sudo is enabled
-  docker exec --tty $container_id env TERM=xterm grep NOPASSWD /etc/sudoers | grep -v '#'
+  - docker exec --tty $container_id env TERM=xterm grep NOPASSWD /etc/sudoers | grep -v '#'
 
   # Test SSH Server tasks fired (check sshd_config)
-  docker exec --tty $container_id env TERM=xterm egrep '^PermitRootLogin no' /etc/ssh/sshd_config
+  - docker exec --tty $container_id env TERM=xterm egrep '^PermitRootLogin no' /etc/ssh/sshd_config
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
