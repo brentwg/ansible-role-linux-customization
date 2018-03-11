@@ -1,9 +1,10 @@
 ---
-# Debian Variables
+# Ubuntu 17.10 Variables
 ssh_service_name: ssh
 
 additional_packages:
   - vim
+  - unity-tweak-tool
   - pass
   - gnupg
   - curl
@@ -14,4 +15,3 @@ additional_packages:
   - qemu-kvm 
   - libvirt-bin 
   - virt-manager
-  
