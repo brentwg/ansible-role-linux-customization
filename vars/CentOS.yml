@@ -13,8 +13,16 @@ additional_packages:
   - gparted
   - libselinux-python
   - selinux-policy
+  - qemu-kvm 
+  - qemu-img 
+  - virt-manager 
+  - libvirt 
+  - libvirt-python 
+  - libvirt-client 
+  - virt-install 
+  - virt-viewer
 
 additional_groups:
   - "Development Tools"
-  - "Virtualization Host"
+  
   
