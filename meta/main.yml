@@ -17,6 +17,7 @@ galaxy_info:
   - name: Ubuntu
     versions:
       - xenial
+      - artful
   galaxy_tags:
     - linux
     - operating
