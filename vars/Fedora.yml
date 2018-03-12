@@ -3,16 +3,17 @@
 ssh_service_name: sshd
 
 additional_packages:
-  - vim-enhanced
-  - gnome-tweak-tool
-  - pass
-  - gnupg
   - curl
-  - htop
-  - yum-utils
+  - gnome-tweak-tool
+  - gnupg
   - gparted
+  - htop
   - libselinux-python
+  - pass
   - selinux-policy
+  - teamviewer
+  - vim-enhanced
+  - yum-utils
 
 additional_groups:
   - "Development Tools"
