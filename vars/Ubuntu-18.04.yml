@@ -1,0 +1,17 @@
+---
+# Ubuntu 17.10 Variables
+ssh_service_name: ssh
+
+additional_packages:
+  - vim
+  - gnome-tweak-tool
+  - pass
+  - gnupg
+  - curl
+  - htop
+  - build-essential
+  - gparted
+  - bridge-utils
+  - qemu-kvm 
+  - libvirt-bin 
+  - virt-manager
